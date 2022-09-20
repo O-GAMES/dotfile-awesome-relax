@@ -1,0 +1,12 @@
+#!/bin/sh
+
+start() {
+  if ! pgrep -f $1 ;
+ then
+    $@&
+  fi }
+
+setxkbmap -layout us,ar -option grp:alt_shift_toggle
+
+
+start picom --experimental-backends --config $HOME/.config/picom/picom.conf
